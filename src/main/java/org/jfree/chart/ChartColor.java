@@ -39,6 +39,7 @@ package org.jfree.chart;
 
 import java.awt.Color;
 import java.awt.Paint;
+import java.util.Objects;
 
 /**
  * Class to extend the number of Colors available to the charts. This
@@ -198,9 +199,12 @@ public class ChartColor extends Color {
      *         the original colors.
      */
     public static Color[] createDarkerColorArray(Color[] colors) {
+        // Validate input
+        Objects.requireNonNull(colors, "colors array must not be null");
         final Color[] result = new Color[colors.length];
         for (int i = 0; i < colors.length; i++) {
-            result[i] = colors[i].darker();
+            final Color c = colors[i];
+            result[i] = (c == null) ? null : c.darker();
         }
         return result;
     }
@@ -220,10 +224,11 @@ public class ChartColor extends Color {
      *         depending on {@code color}
      */
     public static Color getContrastColor(Color color) {
+        Objects.requireNonNull(color, "color must not be null");
         // From Wikipedia: The Y component represents the luma information, and
         // is the only component used by black-and-white television receivers.
         final double luminanceY = 0.299 * color.getRed()
-                + 0.587 * color.getGreen() + 0.114 * color.getBlue();
+            + 0.587 * color.getGreen() + 0.114 * color.getBlue();
         return luminanceY >= 128 ? Color.BLACK : Color.WHITE;
     }
 }
