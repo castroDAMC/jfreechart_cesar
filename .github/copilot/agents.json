@@ -1,0 +1,70 @@
+{
+  "agents": [
+    {
+      "name": "architecture-analyzer",
+      "description": "Analisa o repositório, identifica fluxos principais, componentes-chave e documenta o funcionamento.",
+      "instructions": [
+        "Ler todos os diretórios relevantes.",
+        "Gerar um documento chamado `documentacao.md` explicando:",
+        "- arquitetura",
+        "- módulos",
+        "- serviços",
+        "- fluxos principais",
+        "- dependências internas e externas",
+        "- pontos frágeis identificados"
+      ]
+    },
+    {
+      "name": "vulnerability-scanner",
+      "description": "Identifica vulnerabilidades e code smells diretamente do código.",
+      "instructions": [
+        "Listar vulnerabilidades de segurança.",
+        "Listar code smells de qualidade.",
+        "Classificar cada item.",
+        "Contabilizar cada tipo.",
+        "Gerar o arquivo `relatorio_vulnerabilidades.md` com tabelas detalhadas."
+      ]
+    },
+    {
+      "name": "prioritizer",
+      "description": "Determina a ordem de resolução dos problemas.",
+      "instructions": [
+        "Criar ranking baseado em severidade, impacto e complexidade.",
+        "Separar em curto, médio e longo prazo.",
+        "Gerar seção 'Prioridades' dentro de `plano_refatoracao.md`."
+      ]
+    },
+    {
+      "name": "refactor-advisor",
+      "description": "Sugere como corrigir cada problema priorizado — incluindo trechos de código.",
+      "instructions": [
+        "Para cada item priorizado, sugerir uma refatoração.",
+        "Incluir código antes/depois quando aplicável.",
+        "Adicionar guidelines de boas práticas."
+      ]
+    },
+    {
+      "name": "sast-integrator",
+      "description": "Executa ferramenta SAST e gera relatório separado.",
+      "instructions": [
+        "Rodar CodeQL, Semgrep, Sonar ou ferramenta SAST configurada.",
+        "Exportar relatório para `sast_report.md` ou `sast_report.json`.",
+        "Não misturar esse relatório com a documentação geral."
+      ]
+    },
+    {
+      "name": "plan-consolidator",
+      "description": "Compila documentação, vulnerabilidades, priorização e sugestões em um documento final.",
+      "instructions": [
+        "Criar `plano_refatoracao.md` completo.",
+        "Incluir seções:",
+        "- Sumário executivo",
+        "- Problemas encontrados",
+        "- Tabelas de priorização",
+        "- Sugestões de refatoração",
+        "- Regras e padrões recomendados",
+        "- Próximos passos"
+      ]
+    }
+  ]
+}
